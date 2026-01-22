@@ -1,6 +1,6 @@
 name: Toggle License
 
-  on:
+  "on":
     workflow_dispatch:
       inputs:
         action:
@@ -38,3 +38,5 @@ name: Toggle License
             git add license.json
             git commit -m "License ${{ github.event.inputs.action }}" || echo "No changes"
             git push
+
+  The fix: "on": instead of on: (added quotes).

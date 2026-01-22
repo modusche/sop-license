@@ -1,25 +1,24 @@
-name: Toggle License
-on:
+ name: Toggle License
+  on:
     workflow_dispatch:
       inputs:
         action:
-          description: 'License Action'
+          description: License Action
           required: true
-          default: 'activate'
+          default: activate
           type: choice
           options:
             - activate
             - kill
         message:
-          description: 'Message to show (for kill action)'
+          description: Message to show for kill action
           required: false
-          default: 'License has been revoked.'
-jobs:
+          default: License has been revoked.
+  jobs:
     toggle:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v4
-
         - name: Update License
           run: |
             if [ "${{ github.event.inputs.action }}" == "kill" ]; then
@@ -27,7 +26,6 @@ jobs:
             else
               echo '{"status": "active", "message": ""}' > license.json
             fi
-
         - name: Commit changes
           run: |
             git config --local user.email "action@github.com"

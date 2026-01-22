@@ -1,6 +1,5 @@
 name: Toggle License
-
-  on:
+on:
     workflow_dispatch:
       inputs:
         action:
@@ -15,8 +14,7 @@ name: Toggle License
           description: 'Message to show (for kill action)'
           required: false
           default: 'License has been revoked.'
-
-  jobs:
+jobs:
     toggle:
       runs-on: ubuntu-latest
       steps:

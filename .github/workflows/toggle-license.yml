@@ -1,5 +1,5 @@
 name: Toggle License
-on:
+"on":
   workflow_dispatch:
     inputs:
       action:
